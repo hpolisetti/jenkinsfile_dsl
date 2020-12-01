@@ -8,9 +8,6 @@ pipelineJob('Your App Pipeline') {
   properties{
 
     githubProjectUrl (repo)
-    rebuild {
-      autoRebuild(false)
-    }
   }
 
   definition {
@@ -20,7 +17,7 @@ pipelineJob('Your App Pipeline') {
         git {
           remote { url(repo) }
           branches('main')
-          scriptPath('Jenkinsfile')
+          scriptPath('JenkinsFile')
           extensions { }  // required as otherwise it may try to tag the repo, which you may not want
         }
       }
