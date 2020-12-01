@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh "echo $MAGE_REPO_CREDENTIALS_USR"
                 sh "echo $MAGE_REPO_CREDENTIALS_USR"
+                shell(dslFactory.readFileFromWorkspace(setupScript))
             }
         }
     }
