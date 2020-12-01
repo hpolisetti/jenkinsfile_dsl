@@ -1,15 +1,23 @@
 pipeline {
     agent any
 
-    environment {
-        USER_CREDENTIALS = credentials('USER_PASSWORD')
-    }
+   environment {
+        MAGE_REPO_CREDENTIALS = credentials('USER_PASSWORD')
+        COMPOSER_AUTH = """{
+         "http-basic": {
+          "repo.magento.com": {
+              "username": "${env.MAGE_REPO_CREDENTIALS_USR}",
+              "password": "${env.MAGE_REPO_CREDENTIALS_PSW}"
+                    }
+                 }
+             }"""
+        }
 
     stages {
         stage('Run') {
             steps {
-                sh "echo $USER_CREDENTIALS_USR"
-                sh "echo $USER_CREDENTIALS_PSW"
+                sh "echo $MAGE_REPO_CREDENTIALS_USR"
+                sh "echo $MAGE_REPO_CREDENTIALS_USR"
             }
         }
     }
