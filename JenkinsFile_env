@@ -17,7 +17,7 @@ pipeline {
         stage('Run') {
             steps {
                 sh "echo $MAGE_REPO_CREDENTIALS_USR"
-                sh "echo $MAGE_REPO_CREDENTIALS_USR"
+                sh "echo $MAGE_REPO_CREDENTIALS_PSW"
                 shell(dslFactory.readFileFromWorkspace(test.sh))
             }
         }
