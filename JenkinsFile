@@ -7,5 +7,15 @@ pipeline {
                 println env.santhosh
             }
         }
+        
+         stage('test') {
+      steps {
+        sh './test.sh'
+      }
+      }
+        
+        
+        
+        
     }
 }
